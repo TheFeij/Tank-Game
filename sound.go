@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Tank-Game/config"
 	"bytes"
 	"fmt"
 	"github.com/ebitengine/oto/v3"
@@ -13,7 +14,7 @@ import (
 // playSoundTrack plays game soundtrack repeatedly
 func playSoundTrack() {
 	// Read the mp3 file into memory
-	fileBytes, err := os.ReadFile("./assets/sound.mp3")
+	fileBytes, err := os.ReadFile(config.SoundTrackPath)
 	if err != nil {
 		panic("reading my-file.mp3 failed: " + err.Error())
 	}
