@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Tank-Game/config"
 	"golang.org/x/image/font"
 	"golang.org/x/image/font/opentype"
 	"io/ioutil"
@@ -20,17 +21,17 @@ var statusFont font.Face
 func initFonts() {
 	var err error
 
-	resultFont, err = loadFont("./assets/MightySouly-lxggD.ttf", 36)
+	resultFont, err = loadFont(config.FontPath, 36)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	scoreFont, err = loadFont("./assets/MightySouly-lxggD.ttf", 48)
+	scoreFont, err = loadFont(config.FontPath, 48)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	statusFont, err = loadFont("./assets/MightySouly-lxggD.ttf", 20)
+	statusFont, err = loadFont(config.FontPath, 20)
 	if err != nil {
 		log.Fatal(err)
 	}
