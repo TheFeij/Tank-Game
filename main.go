@@ -16,7 +16,7 @@ import (
 
 // Game holds components, score, status of the game
 // implements ebiten.Game interface
-type Game struct {
+type game struct {
 	// tank is the player
 	tank components.Tank
 	// bullets all the bullets in the game
@@ -32,7 +32,7 @@ type Game struct {
 }
 
 // Update updates game elements
-func (g *Game) Update() error {
+func (g *game) Update() error {
 	// increment game tick
 	g.tick++
 
@@ -125,7 +125,7 @@ func (g *Game) Update() error {
 }
 
 // Draw draws different elements of the game
-func (g *Game) Draw(screen *ebiten.Image) {
+func (g *game) Draw(screen *ebiten.Image) {
 	// Draw a game over message
 	if g.status == victory {
 		finalScoreText := fmt.Sprintf("Final Score: %d", g.score)
@@ -180,7 +180,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 }
 
 // Layout returns Screen dimensions
-func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
+func (g *game) Layout(outsideWidth, outsideHeight int) (int, int) {
 	return config.ScreenWidth, config.ScreenHeight
 }
 
@@ -191,7 +191,7 @@ func main() {
 	initFonts()
 
 	// initialize game struct
-	game := &Game{
+	game := &game{
 		tank: components.NewTank(
 			float64(config.ScreenWidth-config.TankWidth)/2,
 			float64(config.ScreenHeight-config.TankHeight),
