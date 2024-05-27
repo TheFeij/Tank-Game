@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Tank-Game/config"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 )
@@ -15,12 +16,12 @@ var bombImage *ebiten.Image
 func initImages() {
 	var err error
 
-	tankImage, _, err = ebitenutil.NewImageFromFile("./assets/tank.png")
+	tankImage, _, err = ebitenutil.NewImageFromFile(config.TankImagePath)
 	if err != nil {
 		panic("cannot load tank image")
 	}
 
-	bombImage, _, err = ebitenutil.NewImageFromFile("./assets/bomb.png")
+	bombImage, _, err = ebitenutil.NewImageFromFile(config.BombImagePath)
 	if err != nil {
 		panic("cannot load bomb image")
 	}
